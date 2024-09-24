@@ -42,3 +42,10 @@ To set up the project locally, follow these steps:
    ```bash
    git clone https://github.com/yourusername/employee-churn-prediction.git
    cd employee-churn-prediction
+2. **Start the Spring Boot Server(after going to specific diretory)**:
+   ```bash
+   ./mvnw spring-boot:run
+3.***Start the Flask Server(after going to specific diretory)***:
+  ```bash
+  python app.py
+
