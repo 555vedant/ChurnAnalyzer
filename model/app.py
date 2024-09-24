@@ -6,7 +6,7 @@ import pickle
 app = Flask(__name__)
 
 # load
-with open('model/churn_prediction.pkl', 'rb' , encoding='utf-8') as file:
+with open('model/churn_prediction.pkl', 'rb') as file:
     model = pickle.load(file)
 
 # prediction
