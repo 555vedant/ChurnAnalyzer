@@ -64,6 +64,7 @@
 # -----------------------------------------------------------------------------------------------------
 
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import numpy as np
 import pickle
 import sys
@@ -75,6 +76,7 @@ sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
 # Ini
 app = Flask(__name__)
+CORS(app)
 
 # load model
 with open('model/churn_prediction.pkl', 'rb') as file:
