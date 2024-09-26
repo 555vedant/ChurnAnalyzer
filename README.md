@@ -25,7 +25,7 @@ This project aims to predict employee churn using machine learning techniques, s
 - **Frontend**: 
   - HTML
   - JavaScript
-  - CSS (optional)
+    
   
 - **Backend**: 
   - Spring Boot (Java)
