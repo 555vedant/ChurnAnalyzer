@@ -1,36 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Customer Churn Prediction</title>
 </head>
 <body>
     <h1>Customer Churn Prediction</h1>
     <form id="churnForm">
-        <input type="number" name="MonthlyCharge" placeholder="Monthly Charges" required step="0.01">
-        <input type="number" name="AccountWeeks" placeholder="Account Weeks" required>
-        <input type="number" name="ContractRenewal" placeholder="Contract Renewal (0 or 1)" required>
-        <input type="number" name="DataPlan" placeholder="Data Plan (0 or 1)" required>
-        <input type="number" name="DataUsage" placeholder="Data Usage" required step="0.01">
-        <input type="number" name="CustServCalls" placeholder="Customer Service Calls" required>
-        <input type="number" name="DayMins" placeholder="Day Minutes" required step="0.01">
-        <input type="number" name="DayCalls" placeholder="Day Calls" required>
-        <input type="number" name="OverageFee" placeholder="Overage Fee" required step="0.01">
-        <input type="number" name="RoamMins" placeholder="Roaming Minutes" required step="0.01">
+        <input type="number" name="MonthlyCharge" placeholder="Monthly Charges" required step="0.01" />
+        <input type="number" name="AccountWeeks" placeholder="Account Weeks" required />
+        <input type="number" name="ContractRenewal" placeholder="Contract Renewal (0 or 1)" required />
+        <input type="number" name="DataPlan" placeholder="Data Plan (0 or 1)" required />
+        <input type="number" name="DataUsage" placeholder="Data Usage" required step="0.01" />
+        <input type="number" name="CustServCalls" placeholder="Customer Service Calls" required />
+        <input type="number" name="DayMins" placeholder="Day Minutes" required step="0.01" />
+        <input type="number" name="DayCalls" placeholder="Day Calls" required />
+        <input type="number" name="OverageFee" placeholder="Overage Fee" required step="0.01" />
+        <input type="number" name="RoamMins" placeholder="Roaming Minutes" required step="0.01" />
         <button type="submit">Predict Churn</button>
     </form>
-    
+
     <div id="result"></div>
 
     <script>
-        document.getElementById('churnForm').addEventListener('submit', function(e) {
+        document.getElementById("churnForm").addEventListener("submit", async function (e) {
             e.preventDefault(); // Prevent the form from submitting the traditional way
-    
+
             // Collect form data into an object
             const formData = new FormData(this);
             const data = Object.fromEntries(formData);
-    
+            
+
             // Parse all form data values to appropriate types
             const parsedData = {
                 MonthlyCharge: parseFloat(data.MonthlyCharge),
@@ -42,26 +43,33 @@
                 DayMins: parseFloat(data.DayMins),
                 DayCalls: parseInt(data.DayCalls),
                 OverageFee: parseFloat(data.OverageFee),
-                RoamMins: parseFloat(data.RoamMins)
+                RoamMins: parseFloat(data.RoamMins),
             };
-    
-            // Send POST request to Spring Boot backend
-            fetch('http://localhost:8080/api/predict', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(parsedData) // Send in the expected format
-            })
-            .then(response => response.json())
-            .then(result => {
+            
+
+            try {
+                const response = await fetch("http://localhost:8080/api/predict", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(parsedData), 
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const result = await response.json();
                 // Display result
-                document.getElementById('result').innerText = result.prediction === 1 ? "Churn" : "No Churn";
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                document.getElementById('result').innerText = "Error occurred while predicting";
-            });
+                document.getElementById("result").innerText =
+                    result.prediction === 1 ? "Churn" : "No Churn";
+
+            } catch (error) {
+                console.error("Error:", error);
+                document.getElementById("result").innerText =
+                    "Error occurred while predicting: " + error.message;
+            }
         });
     </script>
 </body>
