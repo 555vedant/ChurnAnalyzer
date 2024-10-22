@@ -1,0 +1,183 @@
+/* Global styling */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg, #e0e7ff, #d3cce3); /* Soft gradient background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    transition: background 0.5s ease-in-out;
+}
+
+/* Main container */
+.container {
+    background-color: #ffffff; /* White background for contrast */
+    padding: 30px; /* Reduced padding for smaller form */
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Increased shadow depth */
+    width: 300px; /* Reduced width for smaller form */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, padding 0.3s ease; /* Added transition for background and padding */
+    position: relative;
+    z-index: 1;
+}
+
+/* Hover effect on container */
+.container:hover {
+    transform: translateY(-12px); /* Lift on hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    background-color: #f9f9f9; /* Subtle background change on hover */
+    padding: 35px; /* Slight increase in padding on hover */
+}
+
+/* Heading style */
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #22a7ff; /* Changed color to orange */
+    margin-bottom: 20px; /* Reduced margin */
+    letter-spacing: 1.3px;
+    animation: fadeInDown 0.8s ease, move 3s infinite alternate; /* Added move animation */
+}
+
+/* Keyframes for heading movement */
+@keyframes move {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Move up slightly */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Reduced gap for better spacing */
+}
+
+/* Input styling */
+input {
+    padding: 10px; /* Reduced padding for smaller inputs */
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    background-color: #f7f7f7;
+    transition: all 0.4s ease, transform 0.3s ease, background-color 0.3s ease; /* Added more transitions */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+/* Focus state for input fields */
+input:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.2), 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* Changed to white on focus */
+    transform: scale(1.03); /* Slightly increase size on focus */
+}
+
+/* Input placeholder fade-in effect */
+input::placeholder {
+    color: #aaa;
+    font-style: italic;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+input:focus::placeholder {
+    opacity: 0.5;
+}
+
+/* Button styling */
+button {
+    background-color: #4CAF50; /* Green button */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    padding: 12px; /* Reduced padding for smaller buttons */
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, filter 0.3s ease; /* Added filter transition */
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Hover effect on button */
+button:hover {
+    background-color: #45a049;
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+    transform: translateY(-4px); /* Lift effect on hover */
+    filter: brightness(1.1); /* Slightly brighten button on hover */
+}
+
+/* Button active state */
+button:active {
+    background-color: #3e8e41;
+    transform: translateY(2px); /* Slight depress effect */
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+    filter: brightness(0.9); /* Darken button on active state */
+}
+
+/* Result display styling */
+#result {
+    margin-top: 20px; /* Reduced margin */
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #ff5722; /* Orange color for result display */
+    animation: fadeInUp 0.8s ease;
+}
+
+/* Animations for fade-in effects */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Interactive design for small screens */
+@media (max-width: 400px) {
+    .container {
+        width: 90%; /* Adjusted width for small screens */
+        padding: 20px; /* Reduced padding */
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    input, button {
+        padding: 8px; /* Reduced padding for smaller screens */
+        font-size: 0.9rem;
+    }
+}
+
+/* Background hover effect */
+body:hover {
+    background: linear-gradient(135deg, #f0f4ff, #ddd7e0);
+    transition: background 0.7s ease-in-out;
+}
