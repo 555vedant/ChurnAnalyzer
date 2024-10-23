@@ -49,3 +49,5 @@ To set up the project locally, follow these steps:
   ```bash
   python app.py
 
+4. ***Download the LiveServer Extenstion in your IDE then go to diretory Frontend run index.html with live server
+
