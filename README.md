@@ -35,21 +35,22 @@ This project aims to predict employee churn using machine learning techniques, s
   - Keras
   - TensorFlow
 
-## Installation
+## Installation & Guide
 To set up the project locally, follow these steps:
 
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/yourusername/employee-churn-prediction.git
    cd employee-churn-prediction
+   ```
 2. **Start the Spring Boot Server(after going to specific diretory)**:
    ```bash
    ./mvnw spring-boot:run
    ```
-3.**Start the Flask Server(after going to specific diretory)**:
-  ```bash
-  python app.py
-```
+3. **Start the Flask Server(after going to specific diretory)**:
+   ```bash
+   python app.py
+   ```
 
 4. **Download the LiveServer Extenstion in your IDE then go to diretory Frontend run index.html with live server**
 
