@@ -34,6 +34,8 @@ This project aims to predict employee churn using machine learning techniques, s
 - **Machine Learning**: 
   - Keras
   - TensorFlow
+  - pyhton
+  - flask
 
 ## Installation & Guide
 To set up the project locally, follow these steps:
