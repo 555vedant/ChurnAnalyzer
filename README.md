@@ -1,4 +1,4 @@
-# Employee Churn Prediction System
+# Customer Churn Prediction System
 
 ## Overview
 This project aims to predict employee churn using machine learning techniques, specifically deep learning with Keras and TensorFlow. The system is designed with a user-friendly interface using HTML and JavaScript for the frontend, and it employs Spring Boot for the Java backend and Flask for the Python-based machine learning model.
